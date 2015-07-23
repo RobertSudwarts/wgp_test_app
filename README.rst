@@ -1,8 +1,9 @@
+we got pop test
+=================
+
 .. image:: https://travis-ci.org/RobertSudwarts/wgp_test_app.svg?branch=master
     :target: https://travis-ci.org/RobertSudwarts/wgp_test_app
 
-we got pop test
-=================
 
 task
 ----------------
@@ -30,11 +31,12 @@ In a clean virtual environment:
  the ipython notebook and its dependencies
 
 
- database
- ^^^^^^^^^^
+database
+---------
 
- The git repository contains an `app.db` but this can be deleted and
- recreated with `python create_db.py`
+The git repository contains an `app.db` but this can be deleted and
+recreated with `python create_db.py`
+
 
 running the application
 -------------------------
@@ -42,3 +44,10 @@ running the application
 To serve the application on port 8080:
 
     $ python run.py
+
+
+Tests
+-------
+
+There is 100% code coverage. And the git repository is tracked/covered by Travis CI.
+
