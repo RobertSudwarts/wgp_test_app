@@ -1,3 +1,6 @@
+.. image:: https://travis-ci.org/RobertSudwarts/wgp_test_app.svg?branch=master
+    :target: https://travis-ci.org/RobertSudwarts/wgp_test_app
+
 we got pop test
 =================
 
