@@ -22,4 +22,23 @@ list of matching artist UUIDs and ages. The dataset is in the attached
 setup
 -------
 
- $ pip install -r requirements.txt
+In a clean virtual environment:
+
+    $ pip install -r requirements.txt
+
+ And additional dev_requirements.txt is available for installation of ipython
+ the ipython notebook and its dependencies
+
+
+ database
+ ^^^^^^^^^^
+
+ The git repository contains an `app.db` but this can be deleted and
+ recreated with `python create_db.py`
+
+running the application
+-------------------------
+
+To serve the application on port 8080:
+
+    $ python run.py

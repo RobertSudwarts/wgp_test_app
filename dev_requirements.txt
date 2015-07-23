@@ -1,0 +1,9 @@
+ipython==3.2.1
+tornado==4.2.1
+pyzmq==14.7.0
+backports.ssl-match-hostname==3.4.0.2
+certifi==14.5.14
+jsonschema==2.4.0
+ptyprocess==0.4
+mistune==0.7
+terminado==0.5
