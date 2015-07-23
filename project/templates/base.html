@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+<title>{% block title %}[base]{% endblock %}</title>
+<link rel=stylesheet type=text/css href="{{url_for('static', filename='bootstrap.min.css') }}">
+
+{%- block head_script -%}{%- endblock -%}
+
+<link rel=stylesheet type=text/css href="{{url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+  <div class="container">
+
+    {% block body %}{%- endblock -%}
+
+  </div> <!-- end container -->
+
+<script src="{{url_for('static', filename='bower_components/jquery/dist/jquery.min.js')}}"></script>
+{%- block footer_script -%}{%- endblock -%}
+</body>
+</html>

@@ -1,0 +1,15 @@
+# 
+*.pyc
+
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+*.egg-info/
+*.egg
+
+.coverage
+.coverage.*
