@@ -18,3 +18,5 @@ list of matching artist UUIDs and ages. The dataset is in the attached
 
 setup
 -------
+
+ $ pip install -r requirements.txt
