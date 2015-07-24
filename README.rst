@@ -1,4 +1,4 @@
-we got pop test
+wgp test
 =================
 
 .. image:: https://travis-ci.org/RobertSudwarts/wgp_test_app.svg?branch=master

@@ -3,6 +3,7 @@ import os
 from flask import Flask, render_template, jsonify
 from flask.ext.sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import func
+from collections import Counter
 
 # Setup application
 app = Flask(__name__)
@@ -32,6 +33,41 @@ def median_sort(data, min_age, max_age):
     """
     mid = midpoint(min_age, max_age)
     return sorted(data, key=lambda p: abs(p['age'] - mid))
+
+
+def buckets(data):
+    """From the final (constrained) data we want to return a hash of:
+    {
+        'labels': [ <ages> ],
+        'datasets': [
+            {
+                // count per bucket
+                data: [28, 48, 40, 19, 86, 27, 90]
+            }
+        ]
+    }
+    """
+    ages = [rw['age'] for rw in data]
+
+    # user collections.Counter -- the result will be unordered
+    counter = Counter(ages)
+
+    # applying sorted() to the counter generates a list of tuples
+    sorted_buckets = sorted(counter.items())
+
+    # and now we split `sorted_buckets` into the components
+    # required for the chart
+    labels = [i[0] for i in sorted_buckets]
+
+    dataset = {
+        'fillColor': "rgba(151,187,205,0.5)",
+        'strokeColor': "rgba(151,187,205,0.8)",
+        'highlightFill': "rgba(151,187,205,0.75)",
+        'highlightStroke': "rgba(151,187,205,1)",
+        'data': [i[1] for i in sorted_buckets]
+    }
+
+    return dict(labels=list(labels), datasets=[dataset])
 
 
 @app.route('/')
@@ -68,7 +104,11 @@ def get_artists(min_age, max_age):
     # median value is recomputed and returned for display
     median = midpoint(min_age, max_age)
 
-    return jsonify(data=data, n=len(data), median=median)
+    chart_data = buckets(data)
+
+    # import pdb; pdb.set_trace()
+
+    return jsonify(data=data, n=len(data), median=median, chrt=chart_data)
 
 
 #  the following functions are deprecated in favour of database calls
